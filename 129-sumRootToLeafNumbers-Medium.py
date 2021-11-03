@@ -22,8 +22,6 @@ class Solution:
                 else:
                     leafSum.append(path[1:])
                     leafSum[len(leafSum) - 1].append(curr)
-                    # print(f"Path: {path}")
-                    # print(f"Leaf! {curr.value}")
                     next = path.pop()
             elif curr.left and prev is curr.left:
                 if curr.right:
