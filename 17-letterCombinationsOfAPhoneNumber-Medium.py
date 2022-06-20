@@ -10,17 +10,14 @@ class Solution:
                     '7': 'pqrs',
                     '8': 'tuv',
                     '9': 'wxyz'}
-        charList = []
-        self.lcHelper(digits, numDict, 0, charList, "")
-        return charList
+        combinations = []
+        self.lcHelper(digits, numDict, 0, combinations, "")
+        return combinations
 
     def lcHelper(self, digits, numDict, index, combinations, currWord):
-        if len(currWord) == len(digits):
+        if index == len(digits):
             combinations.append(currWord)
             return
         chars = numDict[digits[index]]
         for ch in chars:
             self.lcHelper(digits, numDict, index + 1, combinations, currWord + ch)
-
-sol = Solution()
-print(sol.letterCombinations('234'))
