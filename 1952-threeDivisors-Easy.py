@@ -4,7 +4,6 @@ class Solution:
         divisors = 1
         while i <= n//2:   
             if (n % i == 0) :
-                print(f"{i} divides {n}")
                 divisors += 1
             i = i + 1
             if divisors > 3:
