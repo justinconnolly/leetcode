@@ -1,19 +1,22 @@
 class Solution:
     def findKthLargest(self, nums: list[int], k: int) -> int:
-        self.mergeSort(nums)
+        self.mergeSort(nums, k)
         return nums[-k]
         
-    def mergeSort(self, nums):
+    def mergeSort(self, nums, k):
 
         if len(nums) <= 1:
+            if nums[0] < k:
+                return []
             return nums
         firstHalf = nums[:len(nums)//2]
         secondHalf = nums[len(nums)//2:]
-        self.mergeSort(firstHalf)
-        self.mergeSort(secondHalf)
+        self.mergeSort(firstHalf, k)
+        self.mergeSort(secondHalf, k)
         firstCounter = 0
         secondCounter = 0
         for index, value in enumerate(nums):
+
             if firstCounter == len(firstHalf):
                 nums[index] = secondHalf[secondCounter]
                 secondCounter += 1
@@ -27,7 +30,7 @@ class Solution:
                 nums[index] = secondHalf[secondCounter]
                 secondCounter += 1
 
-class Solution:
+class Solution2:
     def __init__(self):
         from random import randint
     def findKthLargest(self, nums: list[int], k: int) -> int:
@@ -60,3 +63,8 @@ class Solution:
 
         self.quickSort(myList, start, p - start + 1)
         self.quickSort(myList, q, end - (q - start))
+
+sol = Solution()
+myList = [1,2,3,4,5]
+k = 2
+print(sol.findKthLargest(myList, k))
