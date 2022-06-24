@@ -1,13 +1,11 @@
 class Solution:
     def findKthLargest(self, nums: list[int], k: int) -> int:
         self.mergeSort(nums, k)
+        print(nums)
         return nums[-k]
         
     def mergeSort(self, nums, k):
-
         if len(nums) <= 1:
-            if nums[0] < k:
-                return []
             return nums
         firstHalf = nums[:len(nums)//2]
         secondHalf = nums[len(nums)//2:]
@@ -15,8 +13,7 @@ class Solution:
         self.mergeSort(secondHalf, k)
         firstCounter = 0
         secondCounter = 0
-        for index, value in enumerate(nums):
-
+        for index in range(k):
             if firstCounter == len(firstHalf):
                 nums[index] = secondHalf[secondCounter]
                 secondCounter += 1
