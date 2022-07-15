@@ -6,8 +6,5 @@ class Solution:
         median = nums[len(nums) // 2]
         sum = 0
         for num in nums:
-            add = round(median - num)
-            if add < 0:
-                add = add * -1
-            sum += add
+            sum += abs(round(median - num))
         return sum
