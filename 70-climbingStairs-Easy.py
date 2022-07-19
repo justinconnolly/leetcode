@@ -4,7 +4,7 @@ class Solution:
         return self.climb_stairs(n)
     """
     subproblem: n - 1, n - 2
-    base: n = 0
+    base: n = 0, 1, 2
     """
     def climb_stairs(self, n):
         if n == 0:
