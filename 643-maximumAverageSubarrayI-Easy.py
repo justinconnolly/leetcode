@@ -3,10 +3,10 @@ class Solution:
         sum = 0
         max_av = 0
         for i, v in enumerate(nums):
+            sum += v
             if i < k:
-                sum += v
                 max_av = sum
             else:
-                sum += v - nums[i - k]
+                sum -= nums[i - k]
                 max_av = max(max_av, sum)
         return max_av / k
