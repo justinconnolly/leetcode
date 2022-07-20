@@ -14,6 +14,7 @@ class Solution:
                     pairs += 1
                 dict[v] = 1
         return pairs
+        
 if __name__ == "__main__":
     arrs = [[3,1,4,1,5],
             [1,2,3,4,5]]
